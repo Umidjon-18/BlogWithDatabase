@@ -1,0 +1,23 @@
+<%- include("partials/header"); -%>
+
+  <h1>
+    <%=title%>
+  </h1>
+  <p align="justify">
+    <%=content%>
+  </p>
+  <p><a id="del" onclick="Delete()" class="btn btn-outline-danger"><img class="icon-img" src="/img/trash-solid.svg"
+        alt=""> Delete this post</a></p>
+  <p><a href="/update/<%= id %>" class="btn btn-outline-secondary"><img class="icon-img" src="/img/edit-solid.svg"
+        alt=""> Update this post</a></p>
+
+  <script>
+    function Delete() {
+      if (confirm('Are you sure you want to delete this post ?')) {
+        document.getElementById("del").href = "/delete/<%= id %>"
+      } else {
+        document.getElementById("del").href = ""
+      }
+    }
+  </script>
+  <%- include("partials/footer"); -%>
